@@ -1,5 +1,7 @@
 package com.example.CompleteLogin.Registration;
 
+import com.example.CompleteLogin.AppUser.AppUser;
+import com.example.CompleteLogin.AppUser.AppUserRole;
 import com.example.CompleteLogin.AppUser.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,12 @@ public class RegistrationService {
         if(!isValidEmail){
             throw new IllegalStateException("Email not valid");
         }
-        return "Works! 😬";
+        return appUserService.signUp(new AppUser(
+                request.getFirstName(),
+                request.getLastName(),
+                request.getEmail(),
+                request.getPassword(),
+                AppUserRole.USER
+        ));
     }
 }
