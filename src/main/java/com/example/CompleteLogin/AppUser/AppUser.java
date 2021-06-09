@@ -43,8 +43,17 @@ public class AppUser implements UserDetails {
     private Boolean locked = false;
     private Boolean enabled = true;
 
+    private int progress = 0;
 
+    public int getProgress() {
+        return progress;
+    }
 
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
+
+//    Constructor with all args that doesnt generates by dynamically or automatically
     public AppUser(String firstName, String lastName, String email, String password, AppUserRole appUserRole) {
         this.firstName = firstName;
         this.lastName = lastName;
